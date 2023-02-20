@@ -1,2 +1,0 @@
-Command to run docker image of R:
-docker run -it -v E:/Programming/Statistics:/data --name "R-LanguageServer" r-languageserver:1.0
