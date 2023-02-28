@@ -1,4 +1,4 @@
-# Question 4.8
+# QUESTION 4.8
 
 one_faulty_light <- 0.15
 two_faulty_lights <- 0.10
