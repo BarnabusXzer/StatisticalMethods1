@@ -1,0 +1,6 @@
+# QUESTION 4.61
+
+# Part a)
+# THE VALUE OF z WHEN THE PROBABILITY IS 0.91 IS 2.361524
+z <- -1*qnorm(0.0091)
+print(z)
