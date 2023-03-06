@@ -30,7 +30,7 @@ z2 <- find_z(y2,mean,stdev)
 prob <- pnorm(z2)-pnorm(z1)
 print(prob)
 
-# Part c)
+# Part d)
 # THE VALUE OF k SUCH THAT P(250 - k < y < 250 + k) = 0.60 IS 42.0766
 k <- 0
 prob <- 0

@@ -159,7 +159,7 @@ THE VALUE OF k SUCH THAT P(250 - k < y < 250 + k) = 0.60 IS 42.0766
     prob <- pnorm(z2)-pnorm(z1)
     print(prob)
 
-    # Part c)
+    # Part d)
     k <- 0
     prob <- 0
     while (prob != 0.60) {
@@ -171,3 +171,116 @@ THE VALUE OF k SUCH THAT P(250 - k < y < 250 + k) = 0.60 IS 42.0766
         prob <- abs(round(pnorm(z2)-pnorm(z1),digits=4))
     }
     print(k)
+
+## Question 4.69
+
+**Solutions:**  
+
+Part a)  
+IF A TRAVEL VOUCHED SUBMITTED MORE THAN 55 DAYS AGO IT IS SAFE TO CONCLUDE THAT THE PROBABILITY OF REIMBURSEMENT IS 11.99603e-9% OR 0%
+
+Part b)  
+THE PROBABILITY THAT THE ELAPSED TIME BETWEEN SUBMISSION AND REIMBURSEMENT WILL EXCEED 30 DAYS IS 97.72499% 
+
+**Code:**
+
+    mean <- 36
+    stdev <- 3
+
+    find_z <- function(y,mean,stdev) {
+        return((y-mean)/stdev)
+    }
+
+    # Part a)
+    y <- 30
+    z <- find_z(y,mean,stdev)
+    prob <- 1-pnorm(z)
+    print(prob)
+
+
+    # Part b)
+    y <- 55
+    z <- find_z(y,mean,stdev)
+    prob <- 1-pnorm(z)
+    print(prob)
+
+## Question 4.79
+
+**Solutions:**  
+
+Part a)  
+THE PROBABILITY THAT THE MEAN SCORE IS BETWEEN 900 AND 960 IS 69.79426%
+
+Part b) 
+THE PROBABILITY THAT THEIR MEAN SCORE WAS GREATER THAN 960 IS 15.10287% 
+
+Part c)
+THE 90th PERCENTILE OF THEIR MEAN SCORE IS 967.2533
+
+**Code:**
+
+    mean <- 930
+    stdev <- 130
+    n <- 20
+
+    find_z <- function(y,mean,stdev,n) {
+            return((y-mean)/(stdev/sqrt(n)))
+    }
+
+    # Part a)
+    y1 <- 900
+    z1 <- find_z(y1,mean,stdev,n)
+    y2 <- 960
+    z2 <- find_z(y2,mean,stdev,n)
+    prob <- pnorm(z2)-pnorm(z1)
+    print(prob)
+
+    # Part b)
+    y <- 960
+    z <- find_z(y1,mean,stdev,n)
+    prob <- pnorm(z)
+    print(prob)
+
+    # Part c)
+    z <- qnorm(0.90)
+    y <- mean+z*(stdev/sqrt(n))
+    print(y)
+
+## Question 4.83
+
+**Solutions:**  
+
+Part a)  
+IF A VALUE OF y = 2.7 CANNOT BE EXCEEDED 2.275013% OF POLUTERS WILL BE IN VIOLATION
+
+Part b) 
+THE y VALUE THAT 25% OF POLLUTERS EXCEED IS 2.302347
+
+Part c)
+THE MEAN LEVEL OF A COMPANY SO THAT ONLY 5% OF POLLUTERS EXCEED y = 2.7 IS 2.206544
+
+**Code:**
+
+    mean <- 2.1
+    stdev <- 0.3
+
+    find_z <- function(y,mean,stdev) {
+        return((y-mean)/stdev)
+    }
+
+    # Part a)
+    y <- 2.7
+    z <- find_z(y,mean,stdev)
+    prob <- pnorm(z)
+    print(1-prob)
+
+    # Part b)
+    z <- qnorm(0.75)
+    y <- mean+(z*stdev)
+    print(y)
+
+    # Part c)
+    z <- qnorm(1-0.05)
+    y <- 2.7
+    mean <- y-(z*stdev)
+    print(mean)
