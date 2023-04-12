@@ -1,0 +1,15 @@
+# QUESTION 10.5
+
+confidence <- 0.95
+stdev <- 0.04
+
+# Part a)
+# THERE MUST BE 601 PEOPLE INCLUDED IN THIS POLL TO ESTIMATE THE POPULATION SIZE WITH NO PREVIOUS INFORMATION
+z <- qnorm(p=(1-confidence)/2,lower.tail=FALSE)
+n <- (1/4)*(z/stdev)^2
+
+# Part b)
+# THERE MUST BE 505 PEOPLE INCLUDED IN THIS POLL TO ESTIMATE THE POPULATION SIZE WHEN THE POPULATION PROPORTION IS LESS THAN 30%
+p <- 0.3
+z <- qnorm(p=(1-confidence)/2,lower.tail=FALSE)
+n <- (p*(1-p)*z^2)/stdev^2
